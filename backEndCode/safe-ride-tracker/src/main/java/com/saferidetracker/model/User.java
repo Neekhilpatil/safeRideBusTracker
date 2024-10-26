@@ -8,6 +8,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
+
 import java.util.List;
 
 @Entity
@@ -124,10 +125,14 @@ public class User implements UserDetails {
 	}
 
     // Other getters and setters (if needed)
-	@ManyToOne(cascade = CascadeType.REMOVE)
-	@JoinColumn(name = "role_id", referencedColumnName = "id", nullable = false)
-	private Role role;
+//	@ManyToOne(cascade = CascadeType.REMOVE)
+//	@JoinColumn(name = "role_id", referencedColumnName = "id", nullable = false)
+//	private Role role;
 
+	@ManyToOne
+	@JoinColumn(name = "role_id", referencedColumnName = "id")
+	private Role role;
+	
 	public Role getRole() {
 	    return role;
 	}
